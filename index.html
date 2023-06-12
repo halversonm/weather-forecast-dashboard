@@ -10,72 +10,82 @@
 <body>
     <!-- -- Step 1 -- -->
     <!-- Input form with search button -->
-    <div>
-        <label for="searchInput" class="form-label"><strong>Search for a City:</strong></label>
-        <input type="text" class="form-control" id="searchInput">
-        <button type="submit" class="btn btn-primary">Search</button>
+    <div class="container m-0">
+        <div class="row">
+            <div class="col-3 ">
+                <label for="searchInput" class="form-label"><strong>Search for a City:</strong></label>
+                <input type="text" class="form-control" id="searchInput">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </div>
     </div>
     <!-- Step 1.5 -->
     <!-- See JavaScript -->
 
     <!-- Step 2 -->
     <!-- Create an area to display today's forecast-->
-    <section class="border border-black">
-        <h2></h2>
-        <p id="temp">Temp:</p>
-        <p id="wind-speed">Wind:</p>
-        <p id="humidity">Humidity:</p>
-    </section>
+    <div class="container m-0">
+        <div class="row">
+            <section class="border border-black col-6">
+                <h2></h2>
+                <p id="temp">Temp:</p>
+                <p id="wind-speed">Wind:</p>
+                <p id="humidity">Humidity:</p>
+            </section>
+        </div>
+    </div>
     <!-- Step 3 -->
     <!-- Create an area to display 5-day forecase -->
     <!-- (grab cards from bootstrap for each forecast day) -->
-    <section>
-        <h3>5-Day Forecast:</h3>
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Date Here</h5>
-              <p class="card-text">Temp:</p>
-              <p class="card-text">Wind:</p>
-              <p class="card-text">Humidity:</p>
-            </div>
-        </div>
+        <div class="container">
+            <section class="row">
+                <h3>5-Day Forecast:</h3>
+                <div class="card col-2" style="width: 18rem;">
+                    <div class="card-body">
+                    <h5 class="card-title">Date Here</h5>
+                    <p class="card-text">Temp:</p>
+                    <p class="card-text">Wind:</p>
+                    <p class="card-text">Humidity:</p>
+                    </div>
+                </div>
 
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Date Here</h5>
-              <p class="card-text">Temp:</p>
-              <p class="card-text">Wind:</p>
-              <p class="card-text">Humidity:</p>
-            </div>
-        </div>
+                <div class="card col-2" style="width: 18rem;">
+                    <div class="card-body">
+                    <h5 class="card-title">Date Here</h5>
+                    <p class="card-text">Temp:</p>
+                    <p class="card-text">Wind:</p>
+                    <p class="card-text">Humidity:</p>
+                    </div>
+                </div>
 
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Date Here</h5>
-              <p class="card-text">Temp:</p>
-              <p class="card-text">Wind:</p>
-              <p class="card-text">Humidity:</p>
-            </div>
-        </div>
+                <div class="card col-2" style="width: 18rem;">
+                    <div class="card-body">
+                    <h5 class="card-title">Date Here</h5>
+                    <p class="card-text">Temp:</p>
+                    <p class="card-text">Wind:</p>
+                    <p class="card-text">Humidity:</p>
+                    </div>
+                </div>
 
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Date Here</h5>
-              <p class="card-text">Temp:</p>
-              <p class="card-text">Wind:</p>
-              <p class="card-text">Humidity:</p>
-            </div>
-        </div>
+                <div class="card col-2" style="width: 18rem;">
+                    <div class="card-body">
+                    <h5 class="card-title">Date Here</h5>
+                    <p class="card-text">Temp:</p>
+                    <p class="card-text">Wind:</p>
+                    <p class="card-text">Humidity:</p>
+                    </div>
+                </div>
 
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Date Here</h5>
-              <p class="card-text">Temp:</p>
-              <p class="card-text">Wind:</p>
-              <p class="card-text">Humidity:</p>
-            </div>
+                <div class="card col-2" style="width: 18rem;">
+                    <div class="card-body">
+                    <h5 class="card-title">Date Here</h5>
+                    <p class="card-text">Temp:</p>
+                    <p class="card-text">Wind:</p>
+                    <p class="card-text">Humidity:</p>
+                    </div>
+                </div>
+            </section>
         </div>
-    </section>
     <!-- Step 4 -->
     <!-- Local storage to store past searches -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
