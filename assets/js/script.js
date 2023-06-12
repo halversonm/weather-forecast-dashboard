@@ -5,12 +5,16 @@ var currentIcon = document.querySelector("#currentIcon")
 var temp = document.querySelector("#temp")
 var windSpeed = document.querySelector("#wind-speed")
 var humidity = document.querySelector("#humidity")
-
+var card = document.querySelectorAll(".card")
+var forecastTemp = document.querySelectorAll(".forecastTemp")
+var forecastWind = document.querySelectorAll(".forecastWind")
+var forecastHumidity = document.querySelectorAll(".forecastHumidity")
 
 // on click on searchBtn we want to grab thae value of what the user typed in, and fetch fetchCurrent()
 searchBtn.addEventListener("click", function () {
     var city = searchInput.value
     fetchCurrent(city)
+    fetchForecast(city)
 })
 
 // function that passes in value of search parameter, and fetchs api based on that query
@@ -20,7 +24,6 @@ function fetchCurrent(cityName) {
             return res.json()
         })
         .then(function (data) {
-            console.log(data)
             var gmt = new Date()
             var day = gmt.getDate()
             var month = gmt.getMonth() + 1
@@ -32,5 +35,32 @@ function fetchCurrent(cityName) {
             temp.innerHTML = "Temp: " + Math.round(data.main.temp) + " &#176F"
             windSpeed.innerHTML = "Wind: " + Math.round(data.wind.speed) + "mph"
             humidity.innerHTML = "Humidity: " + Math.round(data.main.humidity) + "%"
+        })
+}
+
+
+
+function fetchForecast(city) {
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=36effebef790a646c9774867989342d3`)
+        .then(function (res) {
+            return res.json()
+        })
+        .then(function (data) {
+            console.log(data)
+                forecastTemp[0].innerHTML = "Temp: " + data.list[7].main.temp + " &#176F"
+                forecastTemp[1].innerHTML = "Temp: " + data.list[15].main.temp + " &#176F"
+                forecastTemp[2].innerHTML = "Temp: " + data.list[23].main.temp + " &#176F"
+                forecastTemp[3].innerHTML = "Temp: " + data.list[31].main.temp + " &#176F"
+                forecastTemp[4].innerHTML = "Temp: " + data.list[39].main.temp + " &#176F"
+                forecastWind[0].innerHTML = "Wind: " + data.list[7].wind.speed + "mph"
+                forecastWind[1].innerHTML = "Wind: " + data.list[15].wind.speed + "mph"
+                forecastWind[2].innerHTML = "Wind: " + data.list[23].wind.speed + "mph"
+                forecastWind[3].innerHTML = "Wind: " + data.list[31].wind.speed + "mph"
+                forecastWind[4].innerHTML = "Wind: " + data.list[39].wind.speed + "mph"
+                forecastHumidity[0].innerHTML = "Humidity: " + data.list[7].main.humidity + "%"
+                forecastHumidity[1].innerHTML = "Humidity: " + data.list[15].main.humidity + "%"
+                forecastHumidity[2].innerHTML = "Humidity: " + data.list[23].main.humidity + "%"
+                forecastHumidity[3].innerHTML = "Humidity: " + data.list[31].main.humidity + "%" 
+                forecastHumidity[4].innerHTML = "Humidity: " + data.list[39].main.humidity + "%" 
         })
 }
