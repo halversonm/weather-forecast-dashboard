@@ -9,6 +9,11 @@ var card = document.querySelectorAll(".card")
 var forecastTemp = document.querySelectorAll(".forecastTemp")
 var forecastWind = document.querySelectorAll(".forecastWind")
 var forecastHumidity = document.querySelectorAll(".forecastHumidity")
+var dayPlusOne = document.getElementById("dayPlusOne")
+var dayPlusTwo = document.getElementById("dayPlusTwo")
+var dayPlusThree = document.getElementById("dayPlusThree")
+var dayPlusFour = document.getElementById("dayPlusFour")
+var dayPlusFive = document.getElementById("dayPlusFive")
 
 // on click on searchBtn we want to grab thae value of what the user typed in, and fetch fetchCurrent()
 searchBtn.addEventListener("click", function () {
@@ -47,6 +52,9 @@ function fetchForecast(city) {
         })
         .then(function (data) {
             console.log(data)
+            var gmt = new Date()
+            var day = gmt.getDate()
+            console.log(day)
                 forecastTemp[0].innerHTML = "Temp: " + data.list[7].main.temp + " &#176F"
                 forecastTemp[1].innerHTML = "Temp: " + data.list[15].main.temp + " &#176F"
                 forecastTemp[2].innerHTML = "Temp: " + data.list[23].main.temp + " &#176F"
