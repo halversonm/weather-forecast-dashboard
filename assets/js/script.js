@@ -14,6 +14,11 @@ var dayPlusTwo = document.getElementById("dayPlusTwo")
 var dayPlusThree = document.getElementById("dayPlusThree")
 var dayPlusFour = document.getElementById("dayPlusFour")
 var dayPlusFive = document.getElementById("dayPlusFive")
+var forecastIconOne = document.getElementById("forecastIconOne")
+var forecastIconTwo = document.getElementById("forecastIconTwo")
+var forecastIconThree = document.getElementById("forecastIconThree")
+var forecastIconFour = document.getElementById("forecastIconFour")
+var forecastIconFive = document.getElementById("forecastIconFive")
 
 // on click on searchBtn we want to grab thae value of what the user typed in, and fetch fetchCurrent()
 searchBtn.addEventListener("click", function () {
@@ -54,12 +59,22 @@ function fetchForecast(city) {
             console.log(data)
             var gmt = new Date()
             var day = gmt.getDate()
-            console.log(day)
-                forecastTemp[0].innerHTML = "Temp: " + data.list[7].main.temp + " &#176F"
-                forecastTemp[1].innerHTML = "Temp: " + data.list[15].main.temp + " &#176F"
-                forecastTemp[2].innerHTML = "Temp: " + data.list[23].main.temp + " &#176F"
-                forecastTemp[3].innerHTML = "Temp: " + data.list[31].main.temp + " &#176F"
-                forecastTemp[4].innerHTML = "Temp: " + data.list[39].main.temp + " &#176F"
+            console.log(data)
+                forecastIconOne.setAttribute("src", "https://openweathermap.org/img/wn/" + data.list[7].weather[0].icon + "@2x.png")
+                forecastIconTwo.setAttribute("src", "https://openweathermap.org/img/wn/" + data.list[15].weather[0].icon + "@2x.png")
+                forecastIconThree.setAttribute("src", "https://openweathermap.org/img/wn/" + data.list[23].weather[0].icon + "@2x.png")
+                forecastIconFour.setAttribute("src", "https://openweathermap.org/img/wn/" + data.list[31].weather[0].icon + "@2x.png")
+                forecastIconFive.setAttribute("src", "https://openweathermap.org/img/wn/" + data.list[39].weather[0].icon + "@2x.png")
+                forecastIconOne.setAttribute("alt", data.list[7].weather[0].description)
+                forecastIconTwo.setAttribute("alt", data.list[15].weather[0].description)
+                forecastIconThree.setAttribute("alt", data.list[23].weather[0].description)
+                forecastIconFour.setAttribute("alt", data.list[31].weather[0].description)
+                forecastIconFive.setAttribute("alt", data.list[39].weather[0].description)
+                forecastTemp[0].innerHTML = "Temp: " + Math.round(data.list[7].main.temp)+ " &#176F"
+                forecastTemp[1].innerHTML = "Temp: " + Math.round(data.list[15].main.temp) + " &#176F"
+                forecastTemp[2].innerHTML = "Temp: " + Math.round(data.list[23].main.temp) + " &#176F"
+                forecastTemp[3].innerHTML = "Temp: " + Math.round(data.list[31].main.temp) + " &#176F"
+                forecastTemp[4].innerHTML = "Temp: " + Math.round(data.list[39].main.temp) + " &#176F"
                 forecastWind[0].innerHTML = "Wind: " + data.list[7].wind.speed + "mph"
                 forecastWind[1].innerHTML = "Wind: " + data.list[15].wind.speed + "mph"
                 forecastWind[2].innerHTML = "Wind: " + data.list[23].wind.speed + "mph"
